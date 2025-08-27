@@ -1,0 +1,9 @@
+<div class="cards-container">
+  @for (p of peliculas; track p.id_pelicula) {
+    <div class="card">
+      <h3>{{ p.titulo }}</h3>
+      <p><strong>Director:</strong> {{ p.director }}</p>
+      <p><strong>Año:</strong> {{ p.anio }}</p>
+    </div>
+  }
+</div>
