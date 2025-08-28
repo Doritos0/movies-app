@@ -1,0 +1,9 @@
+.error{
+    color: lightcoral;
+    font-size: smaller;
+}
+
+.success{
+    color: lightgreen;
+    font-size: smaller;
+}

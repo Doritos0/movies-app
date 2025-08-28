@@ -1,6 +1,5 @@
 import { Component} from '@angular/core';
-import { Api, pelicula } from '../../service/api';
-import { Observable } from 'rxjs';
+import { Api } from '../../service/api';
 
 @Component({
   selector: 'app-movies',

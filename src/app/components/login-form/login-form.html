@@ -1,0 +1,25 @@
+<p>login-form works!</p>
+<form [formGroup]="loginForm" (submit)="Login()">
+    <fieldset>
+        <label>Ingrese Usuario</label>
+        <input type="text" id="user" formControlName="usuario">
+        @if (usuario.invalid && usuario.touched){
+            <p class="error">Usuario es requerido</p>
+        }
+    </fieldset>
+    <fieldset>
+        <label>Ingrese Contraseña</label>
+        <input type="password" id="password" formControlName="password">
+        @if (password.hasError("required") && password.touched){
+            <p class="error">Contraseña es requerida</p>
+        }@else if (password.hasError("minLength") || password.hasError("maxLength")&& password.touched){
+            <p class="error">Contraseña debe tener entre 4-30 caracteres</p>
+        }
+    </fieldset>
+    <button [disabled]="loginForm.invalid">Ingresar</button>
+    @if (success == "y"){
+        <p class="success">Credenciales Correctas!</p>
+    }@else if (success == "n"){
+        <p class="error">Credenciales Invalidas!</p>
+    }
+</form>

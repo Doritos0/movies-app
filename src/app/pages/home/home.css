@@ -1,0 +1,10 @@
+#contenido{
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#contenido h2{
+    padding-top: 20px;
+    margin: 0 auto;
+}
