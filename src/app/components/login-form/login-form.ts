@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Api } from '../../service/api';
+import { Auth } from '../../service/auth';
 
 @Component({
   selector: 'app-login-form',
@@ -18,7 +19,7 @@ export class LoginForm {
   usuario : FormControl;
   password : FormControl;
 
-  constructor(private apiService : Api){
+  constructor(private apiService : Api, public authService: Auth){
     this.usuario = new FormControl('', Validators.required)
     this.password = new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(30)])
 
@@ -32,7 +33,7 @@ export class LoginForm {
   Login(){
     const usuario: string = this.loginForm.value["usuario"];
     const password: string = this.loginForm.value["password"];
-    this.apiService.Login(usuario, password).subscribe({
+    this.authService.login(usuario, password).subscribe({
       next: res => {
         console.log(res);
         this.success = "y";

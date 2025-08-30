@@ -15,7 +15,8 @@ export interface pelicula {
 export class Api {
 
   /*private url = 'https://4ths2vln-8000.brs.devtunnels.ms/'*/
-  private url = 'http://localhost:8001/'
+  private url = 'http://localhost:8000/'
+  //private url = 'https://4ths2vln-8001.brs.devtunnels.ms/'
 
   constructor(private http: HttpClient){}
 
@@ -24,10 +25,11 @@ export class Api {
   }
 
   Login(user : string, password : string){
-    return this.http.post(this.url+'login_usuario/', {user, password})
+    
+    document.cookie = 'access=; Max-Age=0';
+    document.cookie = 'refresh=; Max-Age=0';
+    return this.http.post(this.url+'login_usuario/', {user, password}, { withCredentials: true })
   }
-  /*postViaje(data: any) {
-    return this.http.post(this.apiURL+'lista_viaje/', data);
-  }*/
+
   
 }

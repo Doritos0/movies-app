@@ -17,6 +17,15 @@
 
 .card:hover {
   transform: translateY(-5px);
+  color: lightgray;
+}
+
+.card h3{
+  text-align: center;
+}
+
+.card p{
+  margin: 0px 5% 0px 5%;
 }
 
 @media (max-width: 1081px) {
