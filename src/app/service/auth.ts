@@ -39,5 +39,13 @@ export class Auth {
     // Llama al endpoint refresh_access; backend renueva cookie 'access'.
     return this.http.post(this.api + 'refresh_access/', {}, { withCredentials: true });
   }
+
+  logout(): void {
+  this.http.post(this.api + 'logout/', {}, { withCredentials: true })
+    .subscribe(() => {
+      this.user$.next(null);
+      this.ingresado$.next(false);
+    });
+  }
   
 }

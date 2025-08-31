@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Api } from '../../service/api';
 import { Auth } from '../../service/auth';
@@ -10,6 +10,8 @@ import { Auth } from '../../service/auth';
   styleUrl: './login-form.css'
 })
 export class LoginForm {
+
+  @Output() Logeado = new EventEmitter<string>();
 
   errorMessage : string = "";
 
@@ -38,6 +40,7 @@ export class LoginForm {
         console.log(res);
         this.success = "y";
         this.errorMessage = ''; // limpiar error si login OK
+        this.Logeado.emit(res)
       },
       error: err => {
         console.error(err);

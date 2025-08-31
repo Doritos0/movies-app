@@ -1,9 +1,17 @@
-<div class="cards-container">
-  @for (p of peliculas; track p.id_pelicula) {
-    <div class="card">
-      <h3>{{ p.titulo }}</h3>
-      <p><strong>Director:</strong> {{ p.director }}</p>
-      <p><strong>Año:</strong> {{ p.anio }}</p>
-    </div>
-  }
+<div class="container mt-3 mt-md-4 mt-lg-5">
+  <div class="row">
+    @for (p of peliculas; track p.id_pelicula) {
+      <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-4">
+        <div class="card text-center h-100 shadow-sm"> <!-- shadow para efecto -->
+          <div class="card-body">
+            <h5 class="card-title">{{ p.titulo }}</h5>
+            <p class="card-text"><strong>Director:</strong> {{ p.director }}</p>
+            <p class="card-text"><strong>Año:</strong> {{ p.anio }}</p>
+            <!-- Botones adicionales si los necesitas -->
+            <button class="btn btn-success btn-sm color: $purple;">Vista</button>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
 </div>

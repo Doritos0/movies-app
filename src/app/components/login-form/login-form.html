@@ -1,34 +1,22 @@
-<div class="contenedor">
-    <form [formGroup]="loginForm" (submit)="Login()">
-        <fieldset>
-            <div class="label">
-            <label>Ingrese Usuario</label>
-            </div>
-            
-            <div class="recuadro">
-            <input type="text" id="user" formControlName="usuario">
-            
-            </div>
-        </fieldset>
+<div class="container">
+    <form [formGroup]="loginForm" (submit)="Login()" class="form-control mt-15">
+        <div class="mb-3">
+            <label for="user" class="form-label">Usuario</label>
+            <input type="text" id="user" formControlName="usuario" class="form-control">
             @if (usuario.invalid && usuario.touched){
-                <p class="error">Usuario es requerido</p>
+                <p class="text-danger">Usuario es requerido</p>
             }
-        <br>
-        <fieldset>
-            <div class="label">
-            <label>Ingrese Contraseña</label>
-            </div>
-            <div class="recuadro">
-            <input type="password" id="password" formControlName="password">
-            
-            </div>
-        </fieldset>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" id="password" formControlName="password" class="form-control">
+        </div>
             @if (password.hasError("required") && password.touched){
-                <p class="error">Contraseña es requerida</p>
+                <p class="text-danger">Contraseña es requerida</p>
             }@else if (password.hasError("minLength") || password.hasError("maxLength")&& password.touched){
-                <p class="error">Contraseña debe tener entre 4-30 caracteres</p>
+                <p class="text-danger">Contraseña debe tener entre 4-30 caracteres</p>
             }
-        <button [disabled]="loginForm.invalid">Ingresar</button>
+    <button [disabled]="loginForm.invalid" class="btn btn-success">Ingresar</button>
         @if (success == "y"){
             <p class="success">Credenciales Correctas!</p>
         }@else if (success == "n"){

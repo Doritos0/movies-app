@@ -1,7 +1,9 @@
-<div id="contenido">
-@if (ingresado$){
-
+<div class="container">
+@if (user !== ''){
+    <p class="text-light bg-dark">FUNCIONA</p>
+    <p class="text-light bg-dark">BIENVENIDO {{ user }}</p>
+    <button (click)="logout()" class="btn btn-danger">cerrar sesion</button>
 }@else {
-<app-login-form></app-login-form>
+    <app-login-form (Logeado)="GetUser($event)"></app-login-form>
 }
 </div>
